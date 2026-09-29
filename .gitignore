@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.output/
+.vercel/
+.nitro/
+*.tsbuildinfo
+
+# Secrets and local environment. .env.example is committed on purpose.
+.env
+.env.*
+!.env.example
+
+# Local agent-workspace scratch. Not project source: the build does not read it,
+# and the tests that would pin it skip explicitly when it is absent.
+.grok/
+AGENTS.md
+
+# QA and verification artifacts produced by running the app
+screenshots/
+test-results/
+playwright-report/
+coverage/
+*.log
+nohup.out
+
+# Python / contract tooling
+*.pyc
+__pycache__/
+.pytest_cache/
+tests/direct/.gltest-artifacts/
+artifacts/
+
+# Platform and editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
