@@ -1,9 +1,9 @@
 # YieldTruth V1 — Final Release Manifest
 
-Generated 2026-09-29T22:16:34.840Z by `scripts/release-manifest.mjs`.
+Generated 2026-09-29T22:43:08.266Z by `scripts/release-manifest.mjs`.
 Canonical root: `/root/YieldTruth`
 
-There is **no Git history in this workspace** (`git_history_present: false`). This manifest
+There is **no Git history in this workspace** (`git_history_present: true`). This manifest
 therefore makes **no claim about past commits**. It is a forward-looking baseline: a verified
 fingerprint of the exact source tree that produced the certification evidence below, so any later
 divergence is detectable.
@@ -12,12 +12,12 @@ divergence is detectable.
 
 | Item | Value |
 |---|---|
-| Application source tree SHA-256 | `e775b282d396e2b953453ee00aa3d24827144e1c66519daff9a65a271227e7b2` |
-| Application source archive SHA-256 | `8ef17e2a44c99e7da6217eef57be121f68d27da2b256a98db60a7785cd14b010` |
-| Certification evidence set SHA-256 (`report/`) | `7cbc33ba99c04f60db843ffcd8a6a5537ee3c93a985ba00cbb4f4f423a8008d0` |
-| Archive file count | 170 |
-| Tracked-inventory file count | 170 |
-| Tracked-inventory total bytes | 1553782 |
+| Application source tree SHA-256 | `2acc8f17895b75cc159edef30caea5df23961e7c05b1ba0fdfe5496714a4ac3c` |
+| Application source archive SHA-256 | `92641b30b5643c48664917f50fb21f20f4491620227bd125996157df5e80277e` |
+| Certification evidence set SHA-256 (`report/`) | `74544fc20b265f6e68d5da10baeeb9e579be8d1a1a3933600b968ee656110487` |
+| Archive file count | 168 |
+| Tracked-inventory file count | 168 |
+| Tracked-inventory total bytes | 1547671 |
 | `package-lock.json` SHA-256 | `e5481f9032139e506df6e90d46665a1c9a1c5324181e7a0892d3948b628e7f9e` |
 | `contracts/yield_truth.py` SHA-256 | `eef7fa511d79141f8da4786db777c86fba4c26082a71599833b8bdfb238c22f1` |
 
@@ -55,15 +55,15 @@ Matches found: none
 
 | Area | Files | Bytes |
 |---|---|---|
-| `(root)` | 20 | 613927 |
+| `(root)` | 20 | 621657 |
 | `contracts` | 1 | 38396 |
 | `docs` | 10 | 16572 |
 | `migrations` | 2 | 4763 |
 | `public` | 11 | 295832 |
-| `scripts` | 32 | 206238 |
+| `scripts` | 31 | 206466 |
 | `server` | 2 | 3868 |
-| `specs` | 3 | 2449 |
-| `src` | 86 | 339458 |
+| `specs` | 4 | 9128 |
+| `src` | 84 | 318710 |
 | `tests` | 3 | 32279 |
 
 ## Certification evidence set (`report/`)
@@ -73,25 +73,25 @@ fingerprint of the source it describes.
 
 | File | SHA-256 |
 |---|---|
-| `FINAL_RELEASE_MANIFEST.md` | `9dd3422c3841fc4268d50d359df9e152da5f408bfc2aebbe5b56464daec64b4d` |
-| `FINAL_V1_REPORT.md` | `1777e8cbcc9eff586b851aa02e36369b4278dd7346d4f04dafb0f658c438666e` |
-| `PRODUCTION_DEPLOYMENT.md` | `82c256dd40479443b9e736e250a9dbe685d9c2cf40c7d05c8147a2dc18090508` |
+| `FINAL_RELEASE_MANIFEST.md` | `6417d1c209b6928cec8fd9cd34f489bcc234247c9a3a7ec25468b5306ea288df` |
+| `FINAL_V1_REPORT.md` | `a353df9b3b30cb07d26496309000b896b12d7ea7945d7ac66c4db8a37747cff1` |
+| `PRODUCTION_DEPLOYMENT.md` | `ebae0cdd517066e4f158514b6709c08ac27fa3f1a080d0c4b076b45a94b14d15` |
 | `SECURITY_FINDINGS.md` | `39542602e0c79e2250732b975a5faefa708bf56c7c02216e93d248616e9d2417` |
 | `chain-verify.json` | `03c8fd1b3c21fdb50f22c1ef35f754f0598e7cc8333dfcea8179cf6a0cc24677` |
-| `release-manifest.json` | `85ddb51e870402de36dc75ad69b4564e985ad1288df95c4099e7d0b395c5ddd1` |
+| `release-manifest.json` | `8919f9c1525d114d3fe34c917a6320e36218a3bc2eab29d0c7cf89760aff21af` |
 
 ## Full file inventory
 
 ```
 18b99ca50e595fe0ba1e098e60d9580a4a3d1e72b5c80a4b9572538aab953653  .env.example
-cfcffd01dd19dd4e74c557a5de768dfbe335ab1002590cda3325291d4809b890  .gitignore
+8b3c3f560e1fe2486f903f66ba1900e20739aaac62a92569dec10ccf6f6d8488  .gitignore
 d5f90f76c5b68ce7be5ba077813f97e1983511b8c314764537345a538c1261f4  .prettierrc
 e3ab56ff0854fd16b87f55ce7f3d9eaf55005a542d52e5d8237a519288e5762b  AGENTS.md
 d655a9d839e0ac6eed6a37d28e3cb750427a9d06207bca03fdcb99715f821436  CONTRIBUTING.md
 959f5c0dfd4e5cce3dc33fe70c1232f70c232c3aecbea542a4591bf0b14e844a  LICENSE
-a226fda96a18b248092587e33a217ce7cba7d7234c5ef6cc8661cef4bcd2ecbe  README.md
+7fc15b8946a21d836f50e747159b59a2c3be7e0cb73228b7f80524a5331d21c1  README.md
 c68448e79db5f307509db085354b6d1459ecdfbd4cddacc972bd2532edfe0a1b  SECURITY.md
-0bc42822a9fc0436c6b926d69e5476ccc29e89035cc09763111c829f43033117  STATUS.md
+ab0e87b2c800f326b91f469ffba01b9cfce9628904b25a59725fab27e3e48394  STATUS.md
 eef7fa511d79141f8da4786db777c86fba4c26082a71599833b8bdfb238c22f1  contracts/yield_truth.py
 0f71fd3a11ffe7bc0182e2b0d3a47c6e67bd39c5084e0b86612655b339085005  docs/api.md
 3027ed5e4dcaa5afd92a5ac65d9597675a751dfe7ebd9c59431439e26cd06bc8  docs/architecture.md
@@ -109,7 +109,7 @@ e281187bfb146e00c2c2e4ac3f57800aa01cd031bed8893fbbfa8c80b222f3c2  gltest.config.
 e853eb6833c4963c8723639d92bd6359e0c95159ba2d7730eb91e46f14f07690  migrations/0002_yieldtruth.sql
 f953cacc448c0c81ae4fe63e66b0e59569e840782ad279fdee201dff529363e9  migrations/auth/0001_auth.sql
 e5481f9032139e506df6e90d46665a1c9a1c5324181e7a0892d3948b628e7f9e  package-lock.json
-37f1e884fa2c94c2fec3380db6b49085f42ea9a6a495f85a1334edd4177cf04c  package.json
+b26b0993a7ddd8b676231262724027c2740afd1646c5c99195cb3e6e842cb17a  package.json
 efd6f87d8205a2f14427c01498623b4ee14152c85ad5cbcb49de6e9df7ecdf71  playwright.config.ts
 3274f0c414f3afa79cf6bf6dd9e95390b19b49aa1a74dd21bab31f924274f178  playwright.prod.config.ts
 3cf5d17d294b51c6cca6c86070309b88554b7ad702b0412e8e2709a01990bc8a  public/__grok/icon-180.png
@@ -125,12 +125,12 @@ fd21ce4f473b0dfcec7dd5a26960b9ed0725cccd3a0739fa5472fddf1113a85a  public/favicon
 1a88b56d009d2969d7980c712b3f00ac1494622598c6c5a601b77fcc152b1643  public/og.jpg
 92962d2361a98413c0cef80b31266d49b063cf4ecf6421bb99f57f6eef4ed7b6  scripts/app-env-plugin.mjs
 318f33ce7b29b55c386cc8847084068777880f795a5082043229bb06686be035  scripts/brand-check.mjs
-3dada9e907cf63d4127588268f38987e72108639e65a2694aebf4ee35aa9f309  scripts/brand-check.test.mjs
+9453aa9a31d6c4aa8015c6a80b02948fd989586ccb32bf139d0a93643576fc42  scripts/brand-check.test.mjs
 c6fb865defe5a37bd94e3805b00311d4e8267daf92812e39f62b1213d947265e  scripts/browser-guard.mjs
 5699614f7fa62515e25ba9cca6397db2770cf6feb9b973f3c19f2915874c53de  scripts/browser-smoke-verdict.mjs
 48b3924b41d606f94a9b8faae47ff350b84978fdd5ab3f6ca01640ed4c7087d7  scripts/browser-smoke-verdict.test.mjs
 2e1cc3136f33bd74b73b4b3dba812e74ac299c24893b9a7c406e9bbeaf46571f  scripts/browser-smoke.mjs
-5555f632185c90eb132c7acaf861e162039ab133af36c3b553915513122d2502  scripts/chain-verify.mjs
+de21fbcaa013d304f24fa1213f9d537b6178ae534ec3da7a67b5cd9ebd5e9ab7  scripts/chain-verify.mjs
 d712203c4bc92c197c342e5c91660fc5a141a31171f22f35c505a0bff45f98ee  scripts/check-auth-invariant.mjs
 75a58f44dffb2fc77eb47473638646f607dba26a68a6900156031c7b6227cf3c  scripts/check-auth-invariant.test.mjs
 36331d0bc0664debb5068bd6869d3089dc41555b7770c9ccb577d8845958835c  scripts/grok-pwa-plugin.mjs
@@ -144,19 +144,19 @@ aaffe3f8a25f3f04b0946a18afa89c6c7278ba009db360bff4f5afa904f30b92  scripts/migrat
 fd7263a1dd76f788c2b51e9381e1f1de1a58993fd94e01040285556cd38c0c40  scripts/preview-thumbnail.mjs
 b366b1c28844cda81d21e36a88af5f548bdec6a5a4b3000aac12be3ec99cf605  scripts/preview.mjs
 0105fe41d056ecc22c586a191a9cbd7d0e838b7c878d6993c8c9573c7ea708b1  scripts/preview.test.mjs
-7cda4524e7d233c5bdd0d5ce3c8493cae9ce1dc1ada847d4b1abc3b18b306091  scripts/prod-browser-check.mjs
-406b1aa6ade70e67debd49bf51d989ef14907200357fe3152bed957ab6e0a847  scripts/release-manifest.mjs
-540823e36f9893699cbcba24adb4eaacdb7f4d9a99d0f7abc2e21ed6472e5836  scripts/serve-prod.sh
+e6f5a971ebc096f87c652848714052ed0727f8c459e1b6efe481ad25dc429ef7  scripts/prod-browser-check.mjs
+b1445ba795babd59927c3adfba4e1d9f7d3e88fa84cd5517e673430b280025a6  scripts/release-manifest.mjs
+2e35825c94427880f2ba4b5554c91d707a045f1cdc40798d190ccdcf3b92dc47  scripts/serve-prod.sh
 32ae072de23b5138bf849c344caf72ab2dab6cb4617ab9915db4e4f5b9c7e2f0  scripts/sign-out-plan.mjs
 1942e32f4b6a9d8b62733338b0f0e1a7d84ed278b4e6c4f24fa7616a3abc694e  scripts/sign-out-plan.test.mjs
-0846726e5fb02c2e24359282d23275b129717ca2e48733ae873246531c370221  scripts/walk-error-probe.mjs
 a846b68bd3645299c23eef965d9ef226df3a500d345d7576c23f7a2b2ff643c7  scripts/with-app-env.mjs
 384ea7d0d20f980f733ee38d8f48b0bedd8a4ad39c80ca4792b9aeebcb275851  scripts/with-app-env.test.mjs
 650b62e8aa38697e1b931049025afe3aac829e6761a8aadf428712faef8b1544  scripts/write-atomic.mjs
 e266ac99149651c368715317820934f0e8942db0fc763725ca4a096bf169ad3b  scripts/write-atomic.test.mjs
-0b9ea55f3c858e1ef4b9cf218052b9ec294c09f8a94030906c363720e40e0169  scripts/write-path-check.mjs
+c6b70061026e4d83589f968e017f333d7e08c1609514299c1ecda735fa4fe5f3  scripts/write-path-check.mjs
 340f1fed44355a61fefdaf29a752c524ac029afb00bea3f40cc996cdb289d2f8  server/middleware/grok-pwa.ts
 74847f2b2bade154ac07dabb239c4718a745c095df530e78b8f1ef9f053edfa2  server/virtual-grok-og-identity.d.ts
+ddf73b56280bd1ad9df4d0c8ea670223520b6e3839a209b6c636a94770dbfa2b  specs/V1-BUILD-SPEC.md
 1c04960f5d33190d1bc55d37cf274059018840751805c7a500eed30643754367  specs/constitution.md
 8f7cca97d22f23bd330d75fc7b8bd9258a398bdfa2514b515cf25ea065fc820d  specs/plan.md
 2bb249c23124f3e0431fe58f67522346550ef1d01183159c229c35bdd5e5dd7e  specs/spec.md
@@ -198,8 +198,6 @@ a0cc4bd74b6da5b346b6bafc1aec58b9bf5cc0278264379b737b79a5cff1e482  src/lib/auth/u
 8decf7689ff4833ad2f6f263eff9041dd2a68ce923824fa1d55ad620dea72e49  src/lib/db.ts
 9b834e0978ae76332a65a05f5bc75f80684db8c6aa638916869385c12e3343d5  src/lib/env.server.ts
 2677698fa3384da066d88c111402c1c113971eb5a0373f424489fd4bc5b9be93  src/lib/error-component.tsx
-bcb96816a2135e315078e2e7d0eda5522579b0caf9e768dc6c34294e4fa49137  src/lib/multiplayer/index.ts
-4d0d2492ac249a2cf267c8d2db7688b5a2c488ab640da7727c0f1b73c2e92f60  src/lib/multiplayer/p2p.ts
 c1758cd57fcb44dbc7d6b1e0e57dd2b30330180906702720e58551a5c6e547b1  src/lib/og/site.json
 c2d5e1acc5653ff2abc08a5eeb5feb3331f4e3d7c751ec83d60dee83cf33a6ee  src/lib/preview-embedder-origin.ts
 96b9830f5e17b165f4ae3c90b52e73c24cc6f03b6583f65e568e479dd95c8ba7  src/lib/preview-host-bridge.ts

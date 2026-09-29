@@ -329,11 +329,11 @@ committed.** Instead a verifiable current-state baseline was established.
 
 | Artifact | SHA-256 |
 |---|---|
-| Application source tree (**reproducible fingerprint**) | `e775b282d396e2b953453ee00aa3d24827144e1c66519daff9a65a271227e7b2` |
-| Application source archive (convenience; embeds mtimes, not byte-reproducible) | `8ef17e2a44c99e7da6217eef57be121f68d27da2b256a98db60a7785cd14b010` |
+| Application source tree (**reproducible fingerprint**) | `2acc8f17895b75cc159edef30caea5df23961e7c05b1ba0fdfe5496714a4ac3c` |
+| Application source archive (convenience; embeds mtimes, not byte-reproducible) | `92641b30b5643c48664917f50fb21f20f4491620227bd125996157df5e80277e` |
 | `package-lock.json` | `e5481f9032139e506df6e90d46665a1c9a1c5324181e7a0892d3948b628e7f9e` |
 | `contracts/yield_truth.py` | `eef7fa511d79141f8da4786db777c86fba4c26082a71599833b8bdfb238c22f1` |
-| Files inventoried | 170 |
+| Files inventoried | 168 |
 
 The tree hash is computed over sorted `(path, file-sha256)` pairs, so it is independent of
 timestamps and filesystem layout, and it was confirmed **byte-identical across repeated runs**

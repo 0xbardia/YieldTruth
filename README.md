@@ -141,6 +141,19 @@ npm run build
 npx playwright test --config=playwright.config.ts   # desktop + mobile
 ```
 
+### Verification tools
+
+```bash
+npm run verify:chain        # re-read all 20 readonly methods + deployed source hash
+npm run verify:prod         # desktop/mobile render, console, CSP and 5xx checks
+npm run verify:write-path   # drive the write path; record where it stops without a wallet
+npm run release:manifest    # reproducible source fingerprint and secret scan
+```
+
+`verify:chain` compares the deployed contract source against `contracts/yield_truth.py`, so a
+contract change that was never redeployed is caught immediately. All four are rate-limit aware against
+the public Studionet RPC.
+
 ### Direct Mode vs Studio Mode
 
 **Direct Mode** runs the contract locally under `genlayer-test` with no Docker, mocking the web
