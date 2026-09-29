@@ -1,0 +1,303 @@
+{
+  "verified_at": "2026-09-29T22:05:01.383Z",
+  "network": "Genlayer Studio Network",
+  "chain_id": 61999,
+  "contract": "0x23C029E1aB24f74b355EF05f7b540296BEdD6279",
+  "rpc": "https://studio.genlayer.com/api",
+  "local_source_sha256": "eef7fa511d79141f8da4786db777c86fba4c26082a71599833b8bdfb238c22f1",
+  "reads": [
+    {
+      "method": "schema_version",
+      "args": [],
+      "ok": true,
+      "value": "1"
+    },
+    {
+      "method": "get_owner",
+      "args": [],
+      "ok": true,
+      "value": "0x6f9D2483ce8903354aA997aa98184b77CDaBe75c"
+    },
+    {
+      "method": "classification_charter",
+      "args": [],
+      "ok": true,
+      "value": "YIELDTRUTH_CLASSIFY_V1. You classify where DeFi yield comes from. You do not allocate capital and you do not emit APPROV…"
+    },
+    {
+      "method": "equivalence_principle",
+      "args": [],
+      "ok": true,
+      "value": "YIELDTRUTH_EQ_V1. Equivalence is decided in contract code by gl.vm.run_nondet, not by a model. Two classifications are e…"
+    },
+    {
+      "method": "get_limits",
+      "args": [],
+      "ok": true,
+      "value": "{\"components\":[\"ORGANIC_FEES\",\"LENDING_INTEREST\",\"STAKING_REWARDS\",\"TOKEN_SUBSIDY\",\"LEVERAGED_YIELD\",\"RECURSIVE_YIELD\",\"COUNTERPARTY_DEPENDENT\",\"POINTS_SPECULATION\",\"OTHER_VERIFIED\",\"UNKNOWN\"],\"max_evidence_urls\":4,\"max_opportunities\":500,\"max_policies\":500,\"m"
+    },
+    {
+      "method": "source_count",
+      "args": [],
+      "ok": true,
+      "value": "14"
+    },
+    {
+      "method": "get_source",
+      "args": [
+        "aave.com"
+      ],
+      "ok": true,
+      "value": "{\"enabled\":true,\"host\":\"aave.com\",\"label\":\"Aave\"}"
+    },
+    {
+      "method": "list_sources",
+      "args": [],
+      "ok": true,
+      "value": "[{\"enabled\":true,\"host\":\"aave.com\",\"label\":\"Aave\"},{\"enabled\":true,\"host\":\"compound.finance\",\"label\":\"Compound\"},{\"enabled\":true,\"host\":\"docs.aave.com\",\"label\":\"Aave docs\"}] …(14)"
+    },
+    {
+      "method": "get_policy_count",
+      "args": [],
+      "ok": true,
+      "value": "2"
+    },
+    {
+      "method": "get_policy",
+      "args": [
+        "1"
+      ],
+      "ok": true,
+      "value": "{\"id\":\"1\",\"name\":\"Treasury desk\",\"max_age_seconds\":604800,\"low_confidence_requires_review\":true,\"conflicting_requires_review\":true,\"allow_token_subsidy\":false,\"allow_leverage\":false,\"allow_recursive\":false,\"allow_points\":false,\"allow_counterparty\":false}"
+    },
+    {
+      "method": "list_policies",
+      "args": [],
+      "ok": true,
+      "value": "[{\"allow_counterparty\":false,\"allow_leverage\":false,\"allow_points\":false,\"allow_recursive\":false,\"allow_token_subsidy\":false,\"conflicting_requires_review\":true,\"created_at\":\"2026-09-26T08:34:59Z\",\"creator\":\"0x7C70f4aE412"
+    },
+    {
+      "method": "get_opportunity_count",
+      "args": [],
+      "ok": true,
+      "value": "1"
+    },
+    {
+      "method": "get_opportunity",
+      "args": [
+        "1"
+      ],
+      "ok": true,
+      "value": "{\"id\":\"1\"}"
+    },
+    {
+      "method": "list_opportunities",
+      "args": [],
+      "ok": true,
+      "value": "[{\"advertised_apy\":\"variable\",\"asset\":\"USDC\",\"canonical_url\":\"https://aave.com/docs/aave-v3/concepts/liquidity-pool\",\"chain\":\"Ethereum\",\"evidence_urls\":[\"https://aave.com/help/supplying/supply-tokens\",\"https://ethereum.o"
+    },
+    {
+      "method": "get_assessment_count",
+      "args": [],
+      "ok": true,
+      "value": "1"
+    },
+    {
+      "method": "get_assessment",
+      "args": [
+        "1",
+        "1"
+      ],
+      "ok": true,
+      "value": "{\"revision\":\"1\",\"decision\":\"APPROVED\",\"reason_code\":\"POLICY_PASS\",\"evidence_state\":\"SUFFICIENT\",\"primary_component\":\"LENDING_INTEREST\",\"confidence\":\"MEDIUM\",\"sources_ok\":2,\"sources_failed\":0,\"policy_id\":\"1\",\"opportunity_id\":\"1\"}"
+    },
+    {
+      "method": "get_latest_assessment",
+      "args": [
+        "1"
+      ],
+      "ok": true,
+      "value": "{\"revision\":\"1\",\"decision\":\"APPROVED\",\"reason_code\":\"POLICY_PASS\",\"evidence_state\":\"SUFFICIENT\",\"primary_component\":\"LENDING_INTEREST\",\"confidence\":\"MEDIUM\",\"sources_ok\":2,\"sources_failed\":0,\"policy_id\":\"1\",\"opportunity_id\":\"1\"}"
+    },
+    {
+      "method": "get_history",
+      "args": [
+        "1"
+      ],
+      "ok": true,
+      "value": "[{\"assessed_at\":\"2026-09-26T08:39:40Z\",\"components\":[\"LENDING_INTEREST\"],\"confidence\":\"MEDIUM\",\"decision\":\"APPROVED\",\"evidence_state\":\"SUFFICIENT\",\"opportunity_id\":\"1\",\"policy_id\":\"1\",\"primary_component\":\"LENDING_INTERES"
+    },
+    {
+      "method": "get_latest_decision",
+      "args": [
+        "1"
+      ],
+      "ok": true,
+      "value": "{\"decision\":\"APPROVED\",\"opportunity_id\":\"1\",\"policy_id\":\"1\",\"primary_component\":\"LENDING_INTEREST\",\"reason_code\":\"POLICY_PASS\",\"revision\":\"1\"}"
+    },
+    {
+      "method": "satisfies",
+      "args": [
+        "1",
+        "1"
+      ],
+      "ok": true,
+      "value": "{\"decision\":\"APPROVED\",\"has_assessment\":true,\"opportunity_id\":\"1\",\"policy_id\":\"1\",\"primary_component\":\"LENDING_INTEREST\",\"reason_code\":\"POLICY_PASS\",\"revision\":\"1\",\"stale\":false,\"stored_decision\":\"APPROVED\"}"
+    }
+  ],
+  "tx": {
+    "0x61a1d68664ddc707611eea2dc2221d95678bd5ad637351ba9ae0e8713b5f9d5f": {
+      "status": 7,
+      "status_name": "FINALIZED",
+      "result": 6,
+      "tx_execution_result": null,
+      "leader_receipts": [
+        {
+          "vote": null,
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          },
+          "execution": "SUCCESS"
+        },
+        {
+          "vote": "agree",
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          },
+          "execution": "SUCCESS"
+        }
+      ],
+      "validator_receipts": []
+    },
+    "0x019077e53f0ce0bb6221da7db124f39febf092f20b1fd1038e56d1e986c258cf": {
+      "status": 7,
+      "status_name": "FINALIZED",
+      "result": 6,
+      "tx_execution_result": null,
+      "leader_receipts": [
+        {
+          "vote": null,
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          },
+          "execution": "SUCCESS"
+        },
+        {
+          "vote": "agree",
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          },
+          "execution": "SUCCESS"
+        }
+      ],
+      "validator_receipts": []
+    },
+    "0xf29bf7b8ad3994d87cbcc9049b661d1477f363d59cb8bcc532b43a132bfd2bb2": {
+      "status": 7,
+      "status_name": "FINALIZED",
+      "result": 6,
+      "tx_execution_result": null,
+      "leader_receipts": [
+        {
+          "vote": null,
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          },
+          "execution": "SUCCESS"
+        },
+        {
+          "vote": "idle",
+          "result": {
+            "raw": "AmlkbGU=",
+            "status": "contract_error",
+            "payload": "idle"
+          },
+          "execution": "ERROR"
+        }
+      ],
+      "validator_receipts": []
+    },
+    "0xacd5ffc84280b348e59d63707bdc0f89aa1e7b6ab7e79efb9e7e99dee06dbae7": {
+      "status": 7,
+      "status_name": "FINALIZED",
+      "result": 6,
+      "tx_execution_result": null,
+      "leader_receipts": [
+        {
+          "vote": null,
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          },
+          "execution": "SUCCESS"
+        },
+        {
+          "vote": "agree",
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          },
+          "execution": "SUCCESS"
+        }
+      ],
+      "validator_receipts": []
+    }
+  },
+  "chain_id_rpc": "0xf22f",
+  "deployed_source_sha256": "eef7fa511d79141f8da4786db777c86fba4c26082a71599833b8bdfb238c22f1",
+  "deployed_source_bytes": 38396,
+  "local_source_bytes": 38396,
+  "source_match": true,
+  "read_methods": {
+    "passed": 20,
+    "total": 20,
+    "failed": 0
+  }
+}
