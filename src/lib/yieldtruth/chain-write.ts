@@ -17,27 +17,35 @@ export async function submitGenlayerWrite(
   const chainHex = (await ethereum.request({ method: "eth_chainId" })) as string;
   const current = Number.parseInt(chainHex, 16);
   if (current !== publicConfig.chainId) {
-    update("wallet", "Switching to GenLayer Studionet.");
+    update("wallet", "Your wallet is on another network. Approve the switch to GenLayer Studionet in your wallet.");
     try {
       await ethereum.request({
         method: "wallet_switchEthereumChain",
         params: [{ chainId: `0x${publicConfig.chainId.toString(16)}` }],
       });
     } catch {
-      await ethereum.request({
-        method: "wallet_addEthereumChain",
-        params: [
-          {
-            chainId: `0x${publicConfig.chainId.toString(16)}`,
-            chainName: "GenLayer Studionet",
-            nativeCurrency: { name: "GEN", symbol: "GEN", decimals: 18 },
-            rpcUrls: [publicConfig.rpcUrl],
-          },
-        ],
-      });
+      try {
+        await ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: `0x${publicConfig.chainId.toString(16)}`,
+              chainName: "GenLayer Studionet",
+              nativeCurrency: { name: "GEN", symbol: "GEN", decimals: 18 },
+              rpcUrls: [publicConfig.rpcUrl],
+            },
+          ],
+        });
+      } catch {
+        // Both the switch and the add were declined. Say so plainly instead of
+        // carrying on into a signature that cannot succeed.
+        throw new Error(
+          "GenLayer Studionet is not in your wallet and the switch was declined. Add or select that network, then try again. Nothing was sent.",
+        );
+      }
     }
   }
-  update("wallet", "Waiting for your signature.");
+  update("wallet", "Waiting for your signature in the wallet.");
   const { createClient } = await import("genlayer-js");
   const { studionet } = await import("genlayer-js/chains");
   const { ExecutionResult, TransactionStatus, TransactionResult } = await import("genlayer-js/types");
@@ -54,7 +62,7 @@ export async function submitGenlayerWrite(
   });
   const tx = String(hash) as `0x${string}` & { length: 66 };
   update("submitted", tx);
-  update("consensus", `${tx} is with validators.`);
+  update("consensus", `Sent as ${short(tx)}. Waiting for GenLayer validators to agree. This usually takes a minute or two.`);
   const receipt = await client.waitForTransactionReceipt({
     hash: tx,
     status: TransactionStatus.FINALIZED,
@@ -76,9 +84,21 @@ export async function submitGenlayerWrite(
     receipt.txExecutionResultName !== undefined &&
     receipt.txExecutionResultName !== ExecutionResult.FINISHED_WITH_RETURN;
   if (!agreed || leaderFailed || executionFailed) {
+    // Say what happened and what it means. The raw consensus codes are for the
+    // contract log, not for someone who just signed something.
+    const outcome = agreed
+      ? "the validators did not all agree"
+      : leaderFailed
+        ? "the contract reported an error while running"
+        : "the contract did not finish cleanly";
     throw new Error(
-      `${tx} is not an agreed result (${agreedName ?? agreedCode ?? "unknown"} / ${receipt.txExecutionResultName ?? "no execution field"}).`,
+      `Transaction ${short(tx)} reached the chain but ${outcome}, so nothing was stored. The hash is on GenLayer Studio if you want the detail. You can try again.`,
     );
   }
-  update("final", tx);
+  update("final", `Finalized as ${short(tx)}. The desk is reloading the result now.`);
+}
+
+/** First and last few characters, so a hash stays readable in a sentence. */
+function short(hash: string): string {
+  return hash.length <= 18 ? hash : `${hash.slice(0, 10)}…${hash.slice(-8)}`;
 }

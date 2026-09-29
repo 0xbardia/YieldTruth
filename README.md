@@ -203,8 +203,10 @@ and is reported as such.
 
 Everything else is verified from executed evidence: 20/20 deployed read methods, contract source
 hash matching the deployed bytecode, backend and frontend state matching canonical contract state,
-restart-safe indexing, and a green lint / typecheck / test / build / Playwright run. See
-[report/FINAL_V1_REPORT.md](report/FINAL_V1_REPORT.md).
+restart-safe indexing, a first-time-user QA pass with every defect found fixed and re-verified, and
+a green lint / typecheck / test / build / Playwright run. See
+[report/FINAL_V1_REPORT.md](report/FINAL_V1_REPORT.md) and
+[report/FINAL_USER_QA.md](report/FINAL_USER_QA.md).
 
 ## Contributing
 

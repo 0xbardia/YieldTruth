@@ -123,7 +123,8 @@ function SubmitPage() {
         {ready ? (
           <WriteBox
             title="Sign the submission"
-            intent="Your wallet submits this object to the GenLayer contract. The server does not hold a key and cannot approve it."
+            intent="Your wallet adds this market to the GenLayer contract so validators can read its evidence."
+            subject={`Submit ${protocol} ${asset} as a new market, with ${evidence.length} evidence page${evidence.length === 1 ? "" : "s"}`}
             disabledReason={disabledReason}
             onSign={(update) => submitGenlayerWrite("submit_opportunity", [JSON.stringify(payload)], update)}
           />

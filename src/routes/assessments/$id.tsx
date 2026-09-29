@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { fetchOpportunity } from "@/lib/yieldtruth/fns";
-import { COMPONENT_COPY, DECISION_COPY, REASON_COPY } from "@/lib/yieldtruth/copy";
+import { COMPONENT_COPY, DECISION_COPY, REASON_COPY, assessedWhen, componentList, flagList } from "@/lib/yieldtruth/copy";
 import { DecisionMark, Shell } from "@/components/yield/shell";
 
 export const Route = createFileRoute("/assessments/$id")({
@@ -32,7 +32,13 @@ function AssessmentPage() {
         <p className="mt-3 max-w-2xl leading-7">{DECISION_COPY[assessment.decision]}</p>
         <p className="mt-2 max-w-2xl text-sm leading-6">{REASON_COPY[assessment.reason_code]}</p>
         <p className="mt-4 text-sm leading-6">{assessment.rationale}</p>
-        <p className="mt-4 font-mono text-xs">{assessment.assessed_at}</p>
+        <p className="mt-4 text-xs text-ink/70">
+          {assessedWhen(assessment.assessed_at)} · policy {assessment.policy_id} · {assessment.sources_ok} of{" "}
+          {assessment.sources_ok + assessment.sources_failed} evidence pages read
+        </p>
+        <p className="mt-2 text-xs text-ink/70">
+          Also counted: {componentList(assessment.components)}. Flagged: {flagList(assessment.risk_flags)}.
+        </p>
         <Link to="/opportunities/$id" params={{ id: String(opportunity.id) }} className="mt-6 inline-flex underline">
           {opportunity.label}
         </Link>

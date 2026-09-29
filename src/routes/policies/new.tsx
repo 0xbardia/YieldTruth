@@ -64,6 +64,9 @@ function NewPolicy() {
           ))}
           <label className="block text-sm" htmlFor="age">
             Freshness window (days)
+            <span className="mt-1 block text-xs leading-5 text-ink/70">
+              A reading older than this many days is sent to review instead of passing. Use 0 for no time limit.
+            </span>
             <input
               id="age"
               type="number"
@@ -84,6 +87,7 @@ function NewPolicy() {
           <WriteBox
             title="Sign the policy"
             intent="This creates an immutable policy version. A later edit is a new id, not a rewrite."
+            subject={`Create a new policy named “${name.trim() || "(unnamed)"}”`}
             disabledReason={policyIssue}
             onSign={(update) => submitGenlayerWrite("create_policy", [JSON.stringify(payload)], update)}
           />

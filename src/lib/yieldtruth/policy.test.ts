@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { evaluatePolicy, policySentence, type ClassificationInput } from "./policy.ts";
+import { evaluatePolicy, policyLabels, policySentence, type ClassificationInput } from "./policy.ts";
 
 const desk = {
   allow_token_subsidy: false,
@@ -137,6 +137,19 @@ test("every gate that could have blocked revision 1 is load-bearing", () => {
   // one second past it does not.
   assert.equal(evaluatePolicy({ ...chainRevision1 }, policyOne, "2026-08-02T00:00:00Z", "2026-07-26T00:00:00Z").reason_code, "POLICY_PASS");
   assert.equal(evaluatePolicy({ ...chainRevision1 }, policyOne, "2026-08-02T00:00:01Z", "2026-07-26T00:00:00Z").reason_code, "STALE_ASSESSMENT");
+});
+
+test("a policy name shared by two on-chain versions is disambiguated by id", () => {
+  // The first build created "Treasury desk" twice. Two identical labels make the
+  // selector unusable, so the id is appended only when the name is ambiguous.
+  assert.deepEqual(policyLabels([{ id: 1, name: "Treasury desk" }, { id: 2, name: "Treasury desk" }]), {
+    1: "Treasury desk (#1)",
+    2: "Treasury desk (#2)",
+  });
+  assert.deepEqual(policyLabels([{ id: 7, name: "Desk conservative" }, { id: 8, name: "Treasury desk" }]), {
+    7: "Desk conservative",
+    8: "Treasury desk",
+  });
 });
 
 test("a model-supplied verdict key cannot reach the decision", () => {

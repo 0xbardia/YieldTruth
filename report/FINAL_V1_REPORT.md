@@ -333,7 +333,7 @@ committed.** Instead a verifiable current-state baseline was established.
 | Application source archive (convenience; embeds mtimes, not byte-reproducible) | `92641b30b5643c48664917f50fb21f20f4491620227bd125996157df5e80277e` |
 | `package-lock.json` | `e5481f9032139e506df6e90d46665a1c9a1c5324181e7a0892d3948b628e7f9e` |
 | `contracts/yield_truth.py` | `eef7fa511d79141f8da4786db777c86fba4c26082a71599833b8bdfb238c22f1` |
-| Files inventoried | 168 |
+| Files inventoried | 180 |
 
 The tree hash is computed over sorted `(path, file-sha256)` pairs, so it is independent of
 timestamps and filesystem layout, and it was confirmed **byte-identical across repeated runs**

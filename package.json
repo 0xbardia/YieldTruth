@@ -17,7 +17,7 @@
     "preview:stop": "node scripts/preview.mjs stop",
     "typecheck": "tsc --noEmit",
     "check:auth": "node scripts/check-auth-invariant.mjs",
-    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/lib/yieldtruth/policy.test.ts src/lib/yieldtruth/indexer.test.ts src/lib/yieldtruth/http.test.ts src/lib/yieldtruth/chain-sync.test.ts",
+    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/lib/yieldtruth/policy.test.ts src/lib/yieldtruth/copy.test.ts src/lib/yieldtruth/write-errors.test.ts src/lib/yieldtruth/indexer.test.ts src/lib/yieldtruth/http.test.ts src/lib/yieldtruth/chain-sync.test.ts",
     "lint": "eslint .",
     "format": "prettier --write .",
     "verify:chain": "node scripts/chain-verify.mjs",

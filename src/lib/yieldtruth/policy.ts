@@ -84,3 +84,22 @@ export function policySentence(policy: PolicyRules & { name?: string }): string 
   const name = policy.name ? `${policy.name}: ` : "";
   return `${name}${blocks.join("; ")}. ${age}.`;
 }
+
+/**
+ * Display labels for a policy list.
+ *
+ * The chain holds immutable policy versions, and it is legitimate for two of them
+ * to carry the same name — the first build created "Treasury desk" twice. Rendering
+ * two identical labels makes the selector unusable and hides the fact that the
+ * desk is evaluating against a specific policy id, so an ambiguous name gets its
+ * id appended. This changes nothing on chain and nothing in the stored record.
+ */
+export function policyLabels(policies: Array<{ id: number; name: string }>): Record<number, string> {
+  const counts = new Map<string, number>();
+  for (const policy of policies) counts.set(policy.name, (counts.get(policy.name) ?? 0) + 1);
+  const labels: Record<number, string> = {};
+  for (const policy of policies) {
+    labels[policy.id] = (counts.get(policy.name) ?? 0) > 1 ? `${policy.name} (#${policy.id})` : policy.name;
+  }
+  return labels;
+}

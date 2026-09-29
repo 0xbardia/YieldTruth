@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { fetchPolicies } from "@/lib/yieldtruth/fns";
-import { policySentence } from "@/lib/yieldtruth/policy";
+import { policyLabels, policySentence } from "@/lib/yieldtruth/policy";
 import { OriginNote, Shell } from "@/components/yield/shell";
 
 export const Route = createFileRoute("/policies/")({
@@ -10,6 +10,7 @@ export const Route = createFileRoute("/policies/")({
 
 function PoliciesPage() {
   const policies = Route.useLoaderData();
+  const labels = policyLabels(policies);
   return (
     <Shell>
       <div className="desk-wrap py-10">
@@ -27,7 +28,7 @@ function PoliciesPage() {
             <li key={policy.id} className="py-5">
               <div className="flex flex-wrap items-center gap-3">
                 <Link to="/policies/$id" params={{ id: String(policy.id) }} className="text-2xl underline-offset-4 hover:underline">
-                  {policy.name}
+                  {labels[policy.id] ?? policy.name}
                 </Link>
                 <OriginNote origin={policy.origin} />
               </div>

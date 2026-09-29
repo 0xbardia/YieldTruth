@@ -49,6 +49,18 @@ export const DECISION_COPY: Record<Decision, string> = {
   REVIEW_REQUIRED: "A person should look before capital moves.",
 };
 
+export const EVIDENCE_COPY: Record<string, string> = {
+  SUFFICIENT: "Sufficient",
+  INSUFFICIENT: "Not sufficient",
+  CONFLICTING: "Sources disagree",
+};
+
+export const CONFIDENCE_COPY: Record<string, string> = {
+  HIGH: "High",
+  MEDIUM: "Medium",
+  LOW: "Low",
+};
+
 export const REASON_COPY: Record<string, string> = {
   POLICY_PASS: "No forbidden component was present, and the evidence cleared the policy's confidence bar.",
   TOKEN_SUBSIDY_FORBIDDEN: "Token incentives are in the yield, and this policy rejects them.",
@@ -64,3 +76,36 @@ export const REASON_COPY: Record<string, string> = {
   UNKNOWN_POLICY: "That policy is not on record.",
   EVIDENCE_NOT_SUFFICIENT: "The evidence state is not sufficient.",
 };
+
+/** Plain-language labels for the contract's risk flags. */
+export const FLAG_COPY: Record<string, string> = {
+  EMISSIONS_DOMINATED: "Most of the return depends on token emissions staying valuable",
+  RECURSIVE_LEVERAGE: "The position is levered and recursive",
+  POINTS_ONLY: "Mostly an unissued points programme",
+  THIN_EVIDENCE: "The evidence is thin",
+  SINGLE_SOURCE: "Only one source could be read",
+  CONFLICTING_SOURCES: "The sources disagree",
+  UNCLEAR_COUNTERPARTY: "The counterparty is not clear",
+};
+
+/**
+ * Render a component/flag list the way a person reads it. The raw contract codes
+ * are still available on the assessment record, but the narrative pages should not
+ * print `LENDING_INTEREST` in the middle of an otherwise plain sentence.
+ */
+export function componentList(components: string[]): string {
+  if (components.length === 0) return "none recorded";
+  return components.map((item) => COMPONENT_COPY[item as YieldComponent]?.title ?? item).join(", ");
+}
+
+export function flagList(flags: string[]): string {
+  if (flags.length === 0) return "none";
+  return flags.map((item) => FLAG_COPY[item] ?? item).join(", ");
+}
+
+/** Human-readable assessment time. The contract stores a UTC ISO instant. */
+export function assessedWhen(iso: string): string {
+  const parsed = Date.parse(iso);
+  if (Number.isNaN(parsed)) return iso;
+  return `${new Date(parsed).toISOString().slice(0, 10)} at ${new Date(parsed).toISOString().slice(11, 16)} UTC`;
+}

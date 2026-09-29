@@ -1,7 +1,17 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { fetchGate, fetchOpportunity, fetchPolicies } from "@/lib/yieldtruth/fns";
-import { COMPONENT_COPY, DECISION_COPY, REASON_COPY } from "@/lib/yieldtruth/copy";
+import {
+  COMPONENT_COPY,
+  CONFIDENCE_COPY,
+  DECISION_COPY,
+  EVIDENCE_COPY,
+  REASON_COPY,
+  assessedWhen,
+  componentList,
+  flagList,
+} from "@/lib/yieldtruth/copy";
+import { policyLabels } from "@/lib/yieldtruth/policy";
 import { DecisionMark, OriginNote, Shell } from "@/components/yield/shell";
 import { WriteBox } from "@/components/yield/write-box";
 import { submitGenlayerWrite } from "@/lib/yieldtruth/chain-write";
@@ -23,6 +33,8 @@ function OpportunityPage() {
   const [policyId, setPolicyId] = useState(latest?.policy_id ?? policies[0]?.id ?? 9001);
   const [preview, setPreview] = useState<Awaited<ReturnType<typeof fetchGate>> | undefined>(undefined);
   const source = latest ? COMPONENT_COPY[latest.primary_component] : null;
+  const labels = policyLabels(policies);
+  const policyName = labels[policyId] ?? "the selected policy";
   const decision = preview?.gate.decision ?? latest?.decision ?? "REVIEW_REQUIRED";
   const reason = preview?.gate.reason_code ?? latest?.reason_code ?? "NO_ASSESSMENT";
 
@@ -46,21 +58,24 @@ function OpportunityPage() {
               <dl className="mt-6 grid grid-cols-2 gap-4 text-sm sm:grid-cols-3">
                 <div>
                   <dt className="text-xs tracking-widest uppercase">Evidence</dt>
-                  <dd>{latest.evidence_state}</dd>
+                  <dd>{EVIDENCE_COPY[latest.evidence_state] ?? latest.evidence_state}</dd>
                 </div>
                 <div>
                   <dt className="text-xs tracking-widest uppercase">Confidence</dt>
-                  <dd>{latest.confidence}</dd>
+                  <dd>{CONFIDENCE_COPY[latest.confidence] ?? latest.confidence}</dd>
                 </div>
                 <div>
                   <dt className="text-xs tracking-widest uppercase">Sources read</dt>
                   <dd>
-                    {latest.sources_ok} ok / {latest.sources_failed} failed
+                    {latest.sources_ok} of {latest.sources_ok + latest.sources_failed} pages
                   </dd>
                 </div>
               </dl>
+              <p className="mt-2 text-xs text-ink/70">
+                Assessed {assessedWhen(latest.assessed_at)} · policy {latest.policy_id} · revision {latest.revision}
+              </p>
               <p className="mt-4 text-sm">
-                Components: {latest.components.join(", ") || "none"}. Flags: {latest.risk_flags.join(", ") || "none"}.
+                Also counted: {componentList(latest.components)}. Flagged: {flagList(latest.risk_flags)}.
               </p>
             </div>
             <div className="slip p-5">
@@ -108,7 +123,7 @@ function OpportunityPage() {
             >
               {policies.map((policy) => (
                 <option key={policy.id} value={policy.id}>
-                  {policy.name}
+                  {labels[policy.id] ?? policy.name}
                 </option>
               ))}
             </select>
@@ -116,7 +131,8 @@ function OpportunityPage() {
           </label>
           <WriteBox
             title="Ask GenLayer to assess"
-            intent="Validators render the registered evidence, agree on a classification, then the contract applies the policy you select. You sign this from your wallet."
+            intent="Validators render the registered evidence and agree on where the yield comes from. The contract then applies the policy you picked."
+            subject={`Assess “${opportunity.label}” against ${policyName}`}
             disabledReason={
               opportunity.origin === "fixture"
                 ? "Fixture ids are not chain ids. Submit a new opportunity on Studionet to assess it there."
