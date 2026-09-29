@@ -1,0 +1,4 @@
+# Keeps GenLayer test artifacts out of /workspace/artifacts.
+paths:
+  contracts: contracts
+  artifacts: tests/direct/.gltest-artifacts
